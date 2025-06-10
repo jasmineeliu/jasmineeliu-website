@@ -2,10 +2,14 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-export default function MaskTest({
-  phrases
+export default function MaskText({
+  phrases,
+  mouseEnter,
+  mouseLeave
 }: {
   phrases: string[];
+  mouseEnter: () => void;
+  mouseLeave: () => void;
 }) {
 
   const body = useRef(null);
@@ -17,12 +21,12 @@ export default function MaskTest({
   }
 
   return (
-    <div ref={body}>
+    <div ref={body} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
       {phrases.map( (phrase, index) => {
         return (
           <div key={index} className='flex flex-col overflow-hidden'>
             <motion.p 
-              className='font-body text-[1.3em] font-extrabold' 
+              className='font-body md:text-[1.3em] text-[0.9em] font-extrabold' 
               variants={animation} 
               initial="initial" 
               custom={index}

@@ -2,7 +2,13 @@
 import React, { useState } from "react";
 import { motion, useAnimate } from 'framer-motion';
 
-export default function MainText() {
+export default function MainText({
+  mouseEnter,
+  mouseLeave
+}: {
+  mouseEnter: () => void;
+  mouseLeave: () => void;
+}) {
 
   const splitString = (text: string) => {
       const characters = [];
@@ -19,11 +25,17 @@ export default function MainText() {
   const INITIAL_DELAY = 0.3;
 
   return (
-    <motion.h1
-        className='relative text-center word-break-normal'
+    <div   
+      
+
+    >
+        <motion.h1
+        className='text-center word-break-normal '
         transition={{
           staggerChildren: 0.04,
         }}
+      //         onMouseEnter={mouseEnter} 
+      // onMouseLeave={mouseLeave}
       >
         {splitTextOne.map((char, index) => {
             return (            
@@ -31,7 +43,6 @@ export default function MainText() {
                   key={index} 
                   initial={{
                     opacity: 0,
-                    // letterSpacing: "-5em",
                     filter: "blur(10px)"
                   }}
                   transition={{
@@ -41,10 +52,9 @@ export default function MainText() {
                   }} 
                   animate={{
                     opacity: 1,
-                    // letterSpacing: "0em",
                     filter: "blur(0px)"
                   }}
-                  className="font-title text-primary md:text-[9em]/[0.95] text-[4em]/[0.95]"
+                  className="font-title text-primary md:text-[9em]/[0.95] text-[4em]/[0.95] pointer-events-none"
                 >
                     {char}
                 </motion.span>
@@ -52,5 +62,7 @@ export default function MainText() {
             )}
           )}
         </motion.h1>
+    </div>
+    
   )
 }
