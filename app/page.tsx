@@ -3,6 +3,8 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import MainText from './components/main-text';
 import InfoPage from './components/info-page';
+import ProjectsPage from './components/projects-page';
+import LinkFooter from './components/link-footer';
 import Lenis from 'lenis';
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
@@ -80,10 +82,19 @@ export default function Home() {
         mixBlendMode: 'difference' as const,
         opacity: 1,
       },
+      blackbg: {
+        width: 32,
+        height:32,
+        backgroundColor: 'white',
+        mixBlendMode: 'difference' as const,
+        opacity:1,
+
+      }
   };
 
   const textEnter = () => {setCursorVariant("text")};
   const textLeave = () => {setCursorVariant("default")};
+  const enterBlackBg = () => {setCursorVariant("blackbg")};
 
   return (
     <div className="relative bg-white">
@@ -143,6 +154,30 @@ export default function Home() {
       </div>
 
       <InfoPage mouseEnter={textEnter} mouseLeave={textLeave} />
+
+      <div className='h-[10vh]'/>
+
+      <ProjectsPage mouseEnter={textEnter} mouseLeave={textLeave} bgEnter={enterBlackBg}/>
+
+      <div className='h-[10vh]'/>
+
+    <div 
+
+      className='relative h-[50vh]'
+
+      style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
+
+    >
+
+      <div className='fixed bottom-0 h-[50vh] w-full bg-black' onMouseEnter={enterBlackBg} onMouseLeave={textLeave}>
+
+        <LinkFooter />
+
+      </div>
+
+    </div>
+
+
 
       { hasMoved && 
         <motion.div 

@@ -13,7 +13,7 @@ export default function MaskText({
 }) {
 
   const body = useRef(null);
-  const INITIAL_DELAY = 0.5
+  const INITIAL_DELAY = 0.2
 
   const animation = {
     initial: {y: "100%"},
@@ -21,7 +21,7 @@ export default function MaskText({
   }
 
   return (
-    <div ref={body} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+    <div ref={body} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} className='w-fit'>
       {phrases.map( (phrase, index) => {
         return (
           <div key={index} className='flex flex-col overflow-hidden'>

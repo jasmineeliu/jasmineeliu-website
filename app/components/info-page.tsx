@@ -25,16 +25,16 @@ export default function InfoPage({
   ]
 
 return (
-  <div className="h-full flex flex-row relative gap-10">
+  <div className="h-full flex flex-row items-center relative gap-10">
     <div className='ml-[5vw] w-[37vw] min-w-[37vw]'>
-      <div className='h-[200vh] '>
+      <div className='h-[160vh] mb-[5vh]'>
         <div className='sticky top-1/2 -translate-y-1/2'>
             <MaskText phrases={description} mouseEnter={mouseEnter} mouseLeave={mouseLeave}/>  
         </div>
       </div>
       <div className='h-[100vh]'>
         <div className='sticky top-1/2 -translate-y-1/2'>
-         <MaskText phrases={passions} mouseEnter={mouseEnter} mouseLeave={mouseLeave}/>
+          <MaskText phrases={passions} mouseEnter={mouseEnter} mouseLeave={mouseLeave}/>
          </div>
       </div>
      
