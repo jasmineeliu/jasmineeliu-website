@@ -9,7 +9,7 @@ export default function LinkFooter() {
     {link_name: "Github",
     link: "https://github.com/jasmineeliu"},
     {link_name: "LinkedIn",
-    link: "www.linkedin.com/in/jasmineeliu"},
+    link: "https://linkedin.com/in/jasmineeliu"},
     
 
   ]

@@ -11,7 +11,7 @@ export default function StaggerText({
         initial='initial'
         whileHover='hovered'
         target='_blank' 
-        style={{lineheight: 0.75}}
+        // style={{lineHeight: 1.08}}
         className='relative block overflow-hidden whitespace-nowrap underline '>
           <div>
 
@@ -22,7 +22,7 @@ export default function StaggerText({
                 key={i}
                 variants={{
                   initial: {y: 0},
-                  hovered: {y: "-100%", transition: {duration:0.3, ease: [0.33, 1, 0.68, 1], delay: i * 0.01}}
+                  hovered: {y: "-100%", transition: {duration:0.2, ease: [0.33, 1, 0.68, 1], delay: i * 0.01}}
                 }}
               >
                 {l === " " ? "\u00A0" : l}
@@ -42,7 +42,7 @@ export default function StaggerText({
                 key={i}
                 variants={{
                   initial: {y: "100%"},
-                  hovered: {y: 0, transition: {duration:0.3, ease: [0.33, 1, 0.68, 1], delay: i * 0.01}}
+                  hovered: {y: 0, transition: {duration:0.2, ease: [0.33, 1, 0.68, 1], delay: i * 0.01}}
                 }}
               >
                 {l === " " ? "\u00A0" : l}
