@@ -1,13 +1,11 @@
 // 'use client';
-import React, { useState } from "react";
-import { motion, useAnimate } from 'framer-motion';
+import React from "react";
+import { motion } from 'framer-motion';
 
 export default function MainText({
-  mouseEnter,
-  mouseLeave
+
 }: {
-  mouseEnter: () => void;
-  mouseLeave: () => void;
+
 }) {
 
   const splitString = (text: string) => {

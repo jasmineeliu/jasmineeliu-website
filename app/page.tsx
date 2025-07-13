@@ -130,7 +130,7 @@ export default function Home() {
               onMouseEnter={textEnter}
               onMouseLeave={textLeave}
             >
-               <MainText mouseEnter={textEnter} mouseLeave={textLeave} />
+               <MainText />
               <motion.h3 
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.9 } }}

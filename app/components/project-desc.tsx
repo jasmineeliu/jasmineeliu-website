@@ -1,7 +1,6 @@
 'use client';
-import { motion, AnimatePresence, useAnimate } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import ProjectCurve from './projects-curve';
-import { useEffect, useState } from 'react';
 import StaggerText from './stagger-text';
 
 

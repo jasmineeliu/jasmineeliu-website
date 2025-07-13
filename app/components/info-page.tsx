@@ -1,4 +1,4 @@
-import { motion, useAnimate } from 'framer-motion';
+// import { motion, useAnimate } from 'framer-motion';
 import MaskText from './mask-text';
 import ImageGallery from './image-gallery'
 
