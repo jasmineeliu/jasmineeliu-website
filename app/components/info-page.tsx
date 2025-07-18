@@ -26,7 +26,7 @@ function DesktopLayout({
 }) {
   return (
   <div className="h-full flex md:flex-row flex-col items-center relative">
-    <div className='ml-[5%] lg:w-[30%] mr-[10%]'>
+    <div className='ml-[5%] lg:w-[50%] mr-[5%]'>
       <div className='h-[125vh] mb-[5vh] w-full'>
         <div className='sticky top-1/2 -translate-y-1/2'>
             <MaskText phrases={description} mouseEnter={mouseEnter} mouseLeave={mouseLeave}/>  

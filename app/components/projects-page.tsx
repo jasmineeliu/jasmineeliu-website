@@ -118,18 +118,18 @@ export default function ProjectsPage({
   return (
     <div className='h-[120vh] relative'>
       <div className='sticky top-0 flex flex-row '>
-        
+
         <motion.div 
           animate={{width: projectSelected ? '100%' : '100%'}}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className='ml-[3vw] mr-[3vw] w-full h-[100vh] flex flex-col justify-center'>
+          className='ml-[3vw] mr-[3vw] w-full sm:h-[100vh] h-[90vh] flex flex-col justify-center'>
 
           <div className=' flex flex-row flex-grow-0 mb-[5vh]'>
             <div className='overflow-hidden flex flex-col'>
               <motion.h1 
                 initial={{ y: "100%" }}
                 whileInView={{ y: 0, transition: {duration: 1, ease: [0.33, 1, 0.68, 1]} }}
-                className="font-title text-[10vw]/[110%] w-fit " 
+                className="font-title sm:text-[10vw]/[110%] text-[20vw] w-fit " 
                 onMouseEnter={mouseEnter} 
                 onMouseLeave={mouseLeave}
               >
@@ -149,8 +149,8 @@ export default function ProjectsPage({
                   initial={{opacity: 0}}
                   whileInView={{opacity: 1, transition: {duration: 0.75, delay: 0.2, ease: [0.33, 1, 0.68, 1]}}}
                   className='flex flex-row justify-between pb-2'>
-                    <h1 className='text-2xl'>PROJECT</h1>
-                    <h1 className='text-2xl'>YEAR</h1>
+                    <h1 className='sm:text-2xl text-xl'>PROJECT</h1>
+                    <h1 className='sm:text-2xl text-xl'>YEAR</h1>
                 </motion.div>
                 <motion.div 
                   initial={{width: "0%"}}

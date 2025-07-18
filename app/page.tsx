@@ -155,12 +155,12 @@ export default function Home() {
 
       <InfoPage mouseEnter={textEnter} mouseLeave={textLeave} />
 
-      <div className='h-[10vh]'/>
+      <div className='sm:h-[10vh] h-[5vh]'/>
       <ProjectsPage mouseEnter={textEnter} mouseLeave={textLeave} bgEnter={enterBlackBg}/>
       <div className='h-[10vh]'/>
 
     <div 
-      className='relative h-[50vh]'
+      className='relative sm:h-[50vh] h-[30vh]'
       style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
     >
 
@@ -175,7 +175,7 @@ export default function Home() {
 
       { hasMoved && 
         <motion.div 
-          className=' h-[32px] w-[32px] rounded-full fixed top-0 left-0 opacity-0 pointer-events-none z-[9999]'
+          className=' h-[32px] w-[32px] rounded-full fixed top-0 left-0 opacity-0 pointer-events-none z-[9999] hidden lg:block'
           variants={variants}
           animate={cursorVariant}
           style={{

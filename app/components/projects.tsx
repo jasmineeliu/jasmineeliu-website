@@ -30,8 +30,8 @@ export default function Project({
                 }}
                 onClick={() => activateProject(item)}
                 className='flex flex-row justify-between pt-2 pb-2 w-full'>
-                  <h1 className='text-2xl mr-2'>{item['name']}</h1>
-                  <h1 className='text-2xl'>{item['date']}</h1>
+                  <h1 className='sm:text-2xl text-l mr-2'>{item['name']}</h1>
+                  <h1 className='sm:text-2xl text-l'>{item['date']}</h1>
               </motion.div>
               <motion.div 
                 initial={{width: "0%"}}
