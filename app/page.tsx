@@ -156,18 +156,14 @@ export default function Home() {
       <InfoPage mouseEnter={textEnter} mouseLeave={textLeave} />
 
       <div className='h-[10vh]'/>
-
       <ProjectsPage mouseEnter={textEnter} mouseLeave={textLeave} bgEnter={enterBlackBg}/>
-
       <div className='h-[10vh]'/>
 
     <div 
-
       className='relative h-[50vh]'
-
       style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
-
     >
+
 
       <div className='fixed bottom-0 sm:h-[50vh] h-[30vh] w-full bg-black' onMouseEnter={enterBlackBg} onMouseLeave={textLeave}>
         <LinkFooter />

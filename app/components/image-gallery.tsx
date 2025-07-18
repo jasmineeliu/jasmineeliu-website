@@ -71,14 +71,14 @@ export function Column({
 }) {
 
   return (
-    <motion.div className={`flex flex-col gap-[1vw] items-center justify-center h-[100%] w-[50%] relative whitespace-nowrap`} style={{ top: adjustment}}>
+    <motion.div className={`flex flex-col gap-[1vw] items-center justify-center h-[100%] w-[50%] relative whitespace-nowrap  will-change-transform`} style={{ top: adjustment}}>
       {
         
         images.map((imageSRC, i) => {
           return (
             <motion.div 
               key={i}
-              className='h-[23%] w-[100%]  relative overflow-hidden rounded-[1vw]'
+              className='h-[23%] w-[100%]  relative overflow-hidden rounded-[1vw]  will-change-transform'
               style={{
                 translateY: ypos,
               }}

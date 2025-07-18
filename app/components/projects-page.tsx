@@ -118,7 +118,7 @@ export default function ProjectsPage({
   return (
     <div className='h-[120vh] relative'>
       <div className='sticky top-0 flex flex-row '>
-
+        
         <motion.div 
           animate={{width: projectSelected ? '100%' : '100%'}}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
