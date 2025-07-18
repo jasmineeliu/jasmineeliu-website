@@ -99,7 +99,7 @@ export default function Home() {
   return (
     <div className="relative bg-white">
       <div ref={triggerRef} className={`flex items-center justify-center ${
-            isCompact ? 'h-[20vh]' : 'h-[110vh]'
+            isCompact ? 'h-[0vh]' : 'h-[110vh]'
           }`}>
         <motion.div
           layout
@@ -169,10 +169,8 @@ export default function Home() {
 
     >
 
-      <div className='fixed bottom-0 h-[50vh] w-full bg-black' onMouseEnter={enterBlackBg} onMouseLeave={textLeave}>
-
+      <div className='fixed bottom-0 sm:h-[50vh] h-[30vh] w-full bg-black' onMouseEnter={enterBlackBg} onMouseLeave={textLeave}>
         <LinkFooter />
-
       </div>
 
     </div>

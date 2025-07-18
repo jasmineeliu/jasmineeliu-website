@@ -7,18 +7,18 @@ export default function StaggerText({
 }) {
     return (
       <motion.a 
-        href={link['link']} 
+        href={link['link'] !== "" ? link['link'] : undefined} 
         initial='initial'
         whileHover='hovered'
         target='_blank' 
         // style={{lineHeight: 1.08}}
-        className='relative block overflow-hidden whitespace-nowrap underline '>
+        className='relative block overflow-hidden whitespace-nowrap'>
           <div>
 
             {link['link_name'].split("").map((l, i) => {
               return (
               <motion.span 
-                className='inline-block underline'
+                className={`inline-block ${link['link'] !== "" ? 'cursor-pointer underline' : ''}`}
                 key={i}
                 variants={{
                   initial: {y: 0},
@@ -38,7 +38,7 @@ export default function StaggerText({
             {link['link_name'].split("").map((l, i) => {
               return (
               <motion.span 
-                className='inline-block underline'
+                className={`inline-block ${link['link'] !== "" ? 'cursor-pointer underline' : ''}`}
                 key={i}
                 variants={{
                   initial: {y: "100%"},

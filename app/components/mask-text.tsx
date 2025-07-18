@@ -5,11 +5,13 @@ import { useRef } from 'react';
 export default function MaskText({
   phrases,
   mouseEnter,
-  mouseLeave
+  mouseLeave,
+  right = false
 }: {
   phrases: string[];
   mouseEnter: () => void;
   mouseLeave: () => void;
+  right?: boolean;
 }) {
 
   const body = useRef(null);
@@ -21,12 +23,12 @@ export default function MaskText({
   }
 
   return (
-    <div ref={body} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} className='w-fit'>
+    <div ref={body} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} className={`${right && 'text-right'}`}>
       {phrases.map( (phrase, index) => {
         return (
-          <div key={index} className='flex flex-col overflow-hidden'>
+          <div key={index} className='md:text-[clamp(1rem,1.2vw,3rem)]  text-[0.8rem] overflow-hidden whitespace-nowrap'>
             <motion.p 
-              className='font-body md:text-[1.3em] text-[0.9em] font-extrabold' 
+              className='font-body  font-extrabold' 
               variants={animation} 
               initial="initial" 
               custom={index}

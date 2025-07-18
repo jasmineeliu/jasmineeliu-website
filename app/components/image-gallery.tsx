@@ -13,6 +13,9 @@ const images = [
   "/7.JPG",
   "/8.JPG",
   "/9.JPG",
+  "/10.JPG",
+  "/11.JPG",
+  "/12.JPG",
 ]
 
 export default function ImageGallery() {
@@ -29,10 +32,8 @@ export default function ImageGallery() {
 
 
   const y = useTransform(scrollYProgress, [0, 1], [0, height * 2])
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3])
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, height * 2.7])
   const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 1.4])
-
-  // const y = y1 = y2 = 0
 
   useEffect(() => {
     const resize = () => {
@@ -49,11 +50,11 @@ export default function ImageGallery() {
   }, [])
 
   return (
-    <div ref={gallery} className="h-[190vh] overflow-hidden mt-[75vh]">
-      <div  className='flex flex-row relative top-[-12.5vh] gap-4 w-[100%] h-[200vh]'>
-          <Column images={[images[0], images[1], images[2]]} ypos={y} adjustment={-700}/>
-          <Column images={[images[3], images[4], images[5]]} ypos={y1} adjustment={-1200}/>
-          <Column images={[images[6], images[7], images[8]]} ypos={y2} adjustment={-500 }/>
+    <div ref={gallery} className="lg:h-[175vh] h-[100vh] overflow-hidden w-[100%] lg:mt-[65vw]">
+      <div  className='flex flex-row relative gap-[1vw] lg:w-[110%] w-full top-[-12.5vh] lg:h-[200vh] h-[170vh] justify-center'>
+          <Column images={[images[0], images[1], images[5], images[8]]} ypos={y} adjustment={"-60%"}/>
+          <Column images={[images[2], images[10], images[9], images[4]]} ypos={y1} adjustment={"-90%"}/>
+          <Column images={[images[6], images[7], images[3], images[11]]} ypos={y2} adjustment={"-45%" }/>
       </div>
     </div>
   )
@@ -66,18 +67,18 @@ export function Column({
 }: {
   images: string[];
   ypos: MotionValue<number>;
-  adjustment: number;
+  adjustment: string;
 }) {
 
   return (
-    <div className={`flex flex-col gap-4 items-center justify-center h-[200vh] w-[20vw] relative top-${adjustment}`} style={{ top: adjustment }}>
+    <motion.div className={`flex flex-col gap-[1vw] items-center justify-center h-[100%] w-[50%] relative whitespace-nowrap`} style={{ top: adjustment}}>
       {
         
         images.map((imageSRC, i) => {
           return (
             <motion.div 
               key={i}
-              className=' w-[20vw] aspect-[3/4] relative overflow-hidden rounded-[1vw]'
+              className='h-[23%] w-[100%]  relative overflow-hidden rounded-[1vw]'
               style={{
                 translateY: ypos,
               }}
@@ -86,9 +87,7 @@ export function Column({
               <Image 
                 src={imageSRC}
                 alt="image"
-                fill
-                // height={100}
-                // width={100}
+                fill={true}
                 className='object-cover'
                 
               />
@@ -96,6 +95,6 @@ export function Column({
           )
         })
       }
-    </div>
+    </motion.div>
   )
 }
