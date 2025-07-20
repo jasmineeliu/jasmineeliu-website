@@ -65,6 +65,14 @@ export default function Home() {
       window.removeEventListener('mousemove', moveCursor);
     };
   }, [cursorX, cursorY, cursorVariant]);
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
 
     const variants = {
@@ -155,8 +163,8 @@ export default function Home() {
 
       <InfoPage mouseEnter={textEnter} mouseLeave={textLeave} />
 
-      <div className='sm:h-[10vh] h-[5vh]'/>
-      <ProjectsPage mouseEnter={textEnter} mouseLeave={textLeave} bgEnter={enterBlackBg}/>
+      <div className='h-[10vh]'/>
+      <ProjectsPage mouseEnter={textEnter} mouseLeave={textLeave} bgEnter={enterBlackBg} mobile={isMobile}/>
       <div className='h-[10vh]'/>
 
     <div 

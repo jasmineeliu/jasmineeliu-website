@@ -48,7 +48,7 @@ export default function ProjectsCurve({
     }, [projectSelected, height, controls]);
 
   return (
-    <motion.svg className='absolute top-0 w-[100px] h-full stroke-none fill-black'>
+    <motion.svg className='absolute top-0 md:w-[100px] h-full stroke-none fill-black'>
       <motion.path  
         variants={pathAnimation}
         initial="initial"

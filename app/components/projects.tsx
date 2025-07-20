@@ -30,7 +30,7 @@ export default function Project({
                 }}
                 onClick={() => activateProject(item)}
                 className='flex flex-row justify-between pt-2 pb-2 w-full'>
-                  <h1 className='sm:text-2xl text-l mr-2'>{item['name']}</h1>
+                  <h1 className='sm:text-2xl text-l mr-[5%]'>{item['name']}</h1>
                   <h1 className='sm:text-2xl text-l'>{item['date']}</h1>
               </motion.div>
               <motion.div 

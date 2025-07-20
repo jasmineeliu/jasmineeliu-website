@@ -9,11 +9,12 @@ export default function ProjectsPage({
   mouseEnter,
   mouseLeave,
   bgEnter,
+  mobile
 }: {
   mouseEnter: () => void;
   mouseLeave: () => void;
   bgEnter: () => void;
-
+  mobile: boolean;
 }) {
 
   const projects = [
@@ -116,13 +117,15 @@ export default function ProjectsPage({
   };
   
   return (
-    <div className='h-[120vh] relative'>
-      <div className='sticky top-0 flex flex-row '>
-
+    // <div className='h-[120vh] relative'>
+        <div className='flex flex-row relative h-screen items-center '>
         <motion.div 
-          animate={{width: projectSelected ? '100%' : '100%'}}
+          animate={{width: projectSelected ? (mobile ? '0%' : '100%') : '100%',
+                    opacity: projectSelected ? (mobile ? 0 : 1) : 1,
+                    padding: projectSelected ? (mobile ? 0 : '3vw') : '3vw'
+                  }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className='ml-[3vw] mr-[3vw] w-full sm:h-[100vh] h-[90vh] flex flex-col justify-center'>
+          className={`pl-[3vw] pr-[3vw] w-full  flex flex-col`}>
 
           <div className=' flex flex-row flex-grow-0 mb-[5vh]'>
             <div className='overflow-hidden flex flex-col'>
@@ -164,8 +167,9 @@ export default function ProjectsPage({
 
           {
           <motion.div
-            animate={{width: projectSelected ? '50%' : '0%'}}
+            animate={{width: projectSelected ? (mobile ? '100%' : '50%') : '0%'}}
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+            
           >
           <AnimatePresence mode='wait'>
               <ProjectDesc 
@@ -173,14 +177,14 @@ export default function ProjectsPage({
                 handleCloseProject={handleCloseProject}
                 mouseLeave={mouseLeave}
                 bgEnter={bgEnter}
+                mobile={mobile}
               />
           </AnimatePresence>
           </motion.div>
           }
         
-      
-      </div>
-    </div>
+        </div>
+    // </div>
     
   )
 }
