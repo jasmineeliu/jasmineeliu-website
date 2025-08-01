@@ -130,7 +130,13 @@ export default function Home() {
           //     jyl
           //   </h1>
           // </div>
-            'jyl'
+          <div className='text-black mix-blend-difference z-10'>
+            <p>
+              jyl
+            </p>
+          </div>
+          
+            
           : 
           <div className="flex flex-col items-center justify-between mb-20" >
             <div

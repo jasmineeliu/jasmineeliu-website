@@ -31,7 +31,7 @@ export default function ProjectDesc({
       <AnimatePresence mode='wait'>
 
      { projectSelected && <motion.div 
-        className={`w-full bg-black text-white font-body p-12 flex flex-col items-center justify-center mb-12 relative ${mobile ? 'fixed top-0 left-0' : 'ml-[100px]'}`}
+        className={`w-full bg-black h-full text-white font-body p-12 flex flex-col items-center justify-center mb-12 relative ${mobile ? 'fixed top-0 left-0' : 'ml-[100px]'}`}
         onMouseEnter={bgEnter} onMouseLeave={mouseLeave}
         >
             <motion.div
@@ -55,13 +55,15 @@ export default function ProjectDesc({
                 <h1 className='sm:text-4xl text-2xl font-bold'>{projectSelected['name']}</h1>
                 <h3 className='text-xl ml-0.5 italic'>{projectSelected['date']}</h3>
                 <p className='ml-0.5 mt-8'>{projectSelected['description']}</p>
-                <div className='flex flex-row gap-4 mt-8'>
-                  <p className='font-bold'>Links: </p>
+                <div className='flex flex-row flex-wrap mt-8'>
+                  <p className='font-bold mr-4'>Links: </p>
                   {
                     projectSelected['links'] && projectSelected['links'].length > 0 && (
                       projectSelected['links'].map((link: { link_name: string; link: string }, index: number) => {
                         return (
-                          <StaggerText key={index} link={link} />
+                          <div className='mr-4' key={index}>
+                            <StaggerText link={link} />
+                          </div>
                         )
                         })
                     )

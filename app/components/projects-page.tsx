@@ -120,7 +120,7 @@ export default function ProjectsPage({
     // <div className='h-[120vh] relative'>
         <div className='flex flex-row relative h-screen items-center '>
         <motion.div 
-          animate={{width: projectSelected ? (mobile ? '0%' : '100%') : '100%',
+          animate={{width: projectSelected ? (mobile ? '0%' : '90%') : '100%',
                     opacity: projectSelected ? (mobile ? 0 : 1) : 1,
                     padding: projectSelected ? (mobile ? 0 : '3vw') : '3vw'
                   }}
@@ -167,7 +167,7 @@ export default function ProjectsPage({
 
           {
           <motion.div
-            animate={{width: projectSelected ? (mobile ? '100%' : '50%') : '0%'}}
+            animate={{width: projectSelected ? (mobile ? '100%' : '100%') : '0%'}}
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
             
           >

@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import { useScroll, useTransform, motion, MotionValue, useSpring } from "framer-motion";
 import { useRef, useState, useEffect } from 'react';
 
 const images = [
@@ -34,6 +34,8 @@ export default function ImageGallery() {
   const y = useTransform(scrollYProgress, [0, 1], [0, height * 2])
   const y1 = useTransform(scrollYProgress, [0, 1], [0, height * 2.7])
   const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 1.4])
+
+  
 
   useEffect(() => {
     const resize = () => {
@@ -71,7 +73,8 @@ export function Column({
 }) {
 
   return (
-    <motion.div className={`flex flex-col gap-[1vw] items-center justify-center h-[100%] w-[50%] relative whitespace-nowrap  will-change-transform`} style={{ top: adjustment}}>
+    <motion.div className={`flex flex-col gap-[1vw] items-center justify-center h-[100%] w-[50%] relative whitespace-nowrap  will-change-transform`} 
+    style={{top: adjustment}}>
       {
         
         images.map((imageSRC, i) => {
@@ -80,7 +83,7 @@ export function Column({
               key={i}
               className='h-[23%] w-[100%]  relative overflow-hidden rounded-[1vw]  will-change-transform'
               style={{
-                translateY: ypos,
+                translateY: ypos
               }}
             >
 
