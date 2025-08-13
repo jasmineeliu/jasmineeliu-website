@@ -17,11 +17,11 @@ export default function Home() {
   const [cursorVariant, setCursorVariant] = useState("default");
   const [hasMoved, setHasMoved] = useState(false);
 
-  const cursorX = useMotionValue(0);
-  const cursorY = useMotionValue(0);
+  // const cursorX = useMotionValue(0);
+  // const cursorY = useMotionValue(0);
 
-  const springX = useSpring(cursorX, { stiffness: 500, damping: 40 });
-  const springY = useSpring(cursorY, { stiffness: 500, damping: 40 });
+  // const springX = useSpring(cursorX, { stiffness: 500, damping: 40 });
+  // const springY = useSpring(cursorY, { stiffness: 500, damping: 40 });
 
   const { scrollYProgress } = useScroll({
     target: triggerRef,
@@ -45,26 +45,26 @@ export default function Home() {
 
   }, []);
 
-    useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      if (!hasMoved) {
-        setHasMoved(true)
-      }
+  //   useEffect(() => {
+  //   const moveCursor = (e: MouseEvent) => {
+  //     if (!hasMoved) {
+  //       setHasMoved(true)
+  //     }
 
-      if (cursorVariant === "text") {
-        cursorX.set(e.clientX - 90);
-        cursorY.set(e.clientY - 90);
-      } else {
-        cursorX.set(e.clientX - 16);
-        cursorY.set(e.clientY - 16);
-      }
-    };
+  //     if (cursorVariant === "text") {
+  //       cursorX.set(e.clientX - 90);
+  //       cursorY.set(e.clientY - 90);
+  //     } else {
+  //       cursorX.set(e.clientX - 16);
+  //       cursorY.set(e.clientY - 16);
+  //     }
+  //   };
 
-    window.addEventListener('mousemove', moveCursor);
-    return () => {
-      window.removeEventListener('mousemove', moveCursor);
-    };
-  }, [cursorX, cursorY, cursorVariant]);
+  //   window.addEventListener('mousemove', moveCursor);
+  //   return () => {
+  //     window.removeEventListener('mousemove', moveCursor);
+  //   };
+  // }, [cursorX, cursorY, cursorVariant]);
 
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -75,30 +75,30 @@ export default function Home() {
   }, []);
   
 
-    const variants = {
-      default: {
-        width: 32,
-        height: 32,
-        backgroundColor: 'black',
-        mixBlendMode: 'normal' as const,
-        opacity: 1,
-      },
-      text: {
-        width: 180,
-        height: 180,
-        backgroundColor: 'white',
-        mixBlendMode: 'difference' as const,
-        opacity: 1,
-      },
-      blackbg: {
-        width: 32,
-        height:32,
-        backgroundColor: 'white',
-        mixBlendMode: 'difference' as const,
-        opacity:1,
+  //   const variants = {
+  //     default: {
+  //       width: 32,
+  //       height: 32,
+  //       backgroundColor: 'black',
+  //       mixBlendMode: 'normal' as const,
+  //       opacity: 1,
+  //     },
+  //     text: {
+  //       width: 180,
+  //       height: 180,
+  //       backgroundColor: 'white',
+  //       mixBlendMode: 'difference' as const,
+  //       opacity: 1,
+  //     },
+  //     blackbg: {
+  //       width: 32,
+  //       height:32,
+  //       backgroundColor: 'white',
+  //       mixBlendMode: 'difference' as const,
+  //       opacity:1,
 
-      }
-  };
+  //     }
+  // };
 
   const textEnter = () => {setCursorVariant("text")};
   const textLeave = () => {setCursorVariant("default")};
@@ -187,7 +187,7 @@ export default function Home() {
 
 
 
-      { hasMoved && 
+      {/* { hasMoved && 
         <motion.div 
           className=' h-[32px] w-[32px] rounded-full fixed top-0 left-0 opacity-0 pointer-events-none z-[9999] hidden lg:block'
           variants={variants}
@@ -197,7 +197,7 @@ export default function Home() {
             translateY: springY,
           }}
         />
-      }
+      } */}
       
     </div>
 
