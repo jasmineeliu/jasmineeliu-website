@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     return scrollYProgress.on("change", (latest) => {
-      setIsCompact(latest > 0.01);
+      // setIsCompact(latest > 0.01);
     });
   }, [scrollYProgress]);
 
@@ -107,7 +107,7 @@ export default function Home() {
   return (
     <div className="relative bg-white">
       <div ref={triggerRef} className={`flex items-center justify-center ${
-            isCompact ? 'h-[0vh]' : 'h-[110vh]'
+            isCompact ? 'h-[100vh]' : 'h-[110vh]'
           }`}>
         <motion.div
           layout
