@@ -25,9 +25,12 @@ export default function ProjectDesc({
   }
 
   return (
-    <motion.div className='flex flex-row relative h-[100vh]'>
+    <motion.div className='flex flex-row relative overflow-hidden w-full h-[100vh]'>
     {!mobile && 
-      <ProjectCurve projectSelected={projectSelected} />}
+      <div>
+        <ProjectCurve projectSelected={projectSelected} />
+      </div>
+      }
       <AnimatePresence mode='wait'>
 
      { projectSelected && <motion.div 
