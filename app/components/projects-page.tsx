@@ -18,16 +18,7 @@ export default function ProjectsPage({
 }) {
 
   const projects = [
-    {
-      name: "University of Minnesota Applied Motion Lab",
-      date: "Present",
-      description: "Creating machine learning models, motion analysis algorithms, and statistical models to characterize human motion capabilities using bilateral arm data collected from a motion-based rehabilitation game. Working under the supervision of Dr. Stephen Guy and Shelby Ziccardi.",
-      links: [{
-        link_name: "Lab Page",
-        link: "https://motion.cs.umn.edu/"
-      }],
-      skills: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "PyTorch"]
-    },
+    
     {
       name: "Harvey Mudd Makerspace Website Developer",
       date: "Present",
@@ -36,10 +27,20 @@ export default function ProjectsPage({
         link_name: "Makerspace Website",
         link: "https://make.hmc.edu/"
       }, {
-        link_name: "Project Github", 
+        link_name: "Project GitHub", 
         link: "https://github.com/HMC-Makerspace/MAKE"
       }],
       skills: ["Typescript", "React", "Express", "MongoDB", "Tailwind CSS"]
+    },
+    {
+      name: "University of Minnesota Applied Motion Lab",
+      date: "2025",
+      description: "Creating machine learning models, motion analysis algorithms, and statistical models to characterize human motion capabilities using bilateral arm data collected from a motion-based rehabilitation game. Working under the supervision of Dr. Stephen Guy and Shelby Ziccardi.",
+      links: [{
+        link_name: "Lab Page",
+        link: "https://motion.cs.umn.edu/"
+      }],
+      skills: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "PyTorch"]
     },
     {
       name: "CACTI Lab",
@@ -49,7 +50,7 @@ export default function ProjectsPage({
         link_name: "Lab Page",
         link: "https://cacti-lab.github.io/"
       }, {
-        link_name: "Project Github",
+        link_name: "Project GitHub",
         link: "https://github.com/jasmineeliu/LA-Metro-Data"
       }],
       skills: ["QGIS", "OpenLayers", "HTML", "CSS", "Javascript"]
@@ -59,7 +60,7 @@ export default function ProjectsPage({
       date: "2025",
       description: "Developed a web application for Code the Change in collaboration with MIT's Jameel Clinic and The Boston Museum of Science to create an interactive exhibit educating the public about clinical AI and drug discovery.",
       links: [{
-        link_name: "Project Github",
+        link_name: "Project GitHub",
         link: "https://github.com/anika213/mos-mit-ctc"
       }],
       skills: ["React", "Node.js", "Tailwind CSS"]
@@ -69,17 +70,17 @@ export default function ProjectsPage({
       date: "2025",
       description: "Designed and implemented a responsive front-end for an AI-powered web app that generates personalized playlists with collaborative filtering and content-based recommendations.",
       links: [{
-        link_name: "Project Github",
+        link_name: "Project GitHub",
         link: "https://github.com/tylerheadley/p-laylist"
       }],
       skills: ["React", "HTML", "CSS", "PostgreSQL", "Node.js", "Python", "Flask"]
     },
     {
-      name: "Kode with Klossy x Deloitte Sustainability and AI Challenge",
+      name: "KWK x Deloitte Sustainability and AI Challenge",
       date: "2025",
       description: "Created a Swift app that provides up-to-date, personalized news articles and resources on the intersection of AI and sustainability. Inteded to motivate and educate the public on how AI can both help and harm the environment. Won $5000 as a Kode with Klossy x Deloitte Sustainability and AI Challenge winner.",
       links: [{
-        link_name: "Project Github",
+        link_name: "Project GitHub",
         link: "https://github.com/jasmineeliu/KWK-Sustainability"
       }],
       skills: ["Swift", "Xcode",]
@@ -89,7 +90,7 @@ export default function ProjectsPage({
       date: "2023",
       description: "Developed a website that educates the public about the ethical implications of AI in social media and how to use AI responsibly. Won the Girls Who Code Spring 2023 Humanize AI Challenge.",
       links: [{
-        link_name: "Project Github",
+        link_name: "Project GitHub",
         link: "https://github.com/jasmineeliu/GWCAI"
       }],
       skills: ["HTML", "CSS", "Javascript"]

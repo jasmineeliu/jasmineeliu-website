@@ -3,7 +3,7 @@ export default function LinkFooter() {
 
   const links = [
 
-    {link_name: "Github",
+    {link_name: "GitHub",
     link: "https://github.com/jasmineeliu"},
     {link_name: "LinkedIn",
     link: "https://linkedin.com/in/jasmineeliu"},

@@ -3,11 +3,11 @@ import MaskText from './mask-text';
 import ImageGallery from './image-gallery'
 
 const description = [
-    "Currently studying Computer Science",
-    "and Math at Harvey Mudd College.",
-    "This summer, I’m researching machine learning",
-    "and computer vision at the Applied Motion Lab",
-    "at University of Minnesota."
+    "I'm studying Computer Science",
+    "and Math at Harvey Mudd College with an",
+    "expected graduation date of 2028.",
+    "I’m currently solving proofs, working",
+    "on websites, and making the most of college!",
   ]
 
   const passions = [
