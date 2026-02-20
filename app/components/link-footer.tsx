@@ -1,3 +1,4 @@
+'use client';
 import StaggerText from './stagger-text';
 export default function LinkFooter() {
 

@@ -5,7 +5,6 @@ import MainText from './components/main-text';
 import InfoPage from './components/info-page';
 import ProjectsPage from './components/projects-page';
 import LinkFooter from './components/link-footer';
-import Lenis from 'lenis';
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 
@@ -36,13 +35,29 @@ export default function Home() {
 
   // scroll effect
   useEffect(() => {
-    const lenis = new Lenis();
-    function raf(time: any) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    if (typeof window === 'undefined') return;
+    
+    let lenisInstance: any;
+    let rafId: number;
+    
+    import('lenis').then((LenisModule) => {
+      const Lenis = LenisModule.default;
+      lenisInstance = new Lenis();
+      function raf(time: any) {
+        lenisInstance.raf(time);
+        rafId = requestAnimationFrame(raf);
+      }
+      rafId = requestAnimationFrame(raf);
+    });
 
+    return () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      if (lenisInstance) {
+        lenisInstance.destroy();
+      }
+    };
   }, []);
 
   //   useEffect(() => {

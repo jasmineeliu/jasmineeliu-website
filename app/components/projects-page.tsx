@@ -1,7 +1,7 @@
+'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import Project from './projects';
 import ProjectDesc from './project-desc';
-import { link } from 'fs';
 import { useState } from 'react';
 
 
