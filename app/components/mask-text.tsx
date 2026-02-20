@@ -1,6 +1,8 @@
 'use client'
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
+import { Variants } from "framer-motion"
+
 
 export default function MaskText({
   phrases,
@@ -19,7 +21,7 @@ export default function MaskText({
 
   const animation = {
     initial: {y: "100%"},
-    entered: (i: number) => ({y: "0", transition: {duration: 0.75, ease: [0.33, 1, 0.68, 1],  delay: 0.1 * i + INITIAL_DELAY}})
+    entered: (i: number) => ({y: "0", transition: {duration: 0.75, ease: [0.33, 1, 0.68, 1] as [number, number, number, number],  delay: 0.1 * i + INITIAL_DELAY}})
   }
 
   return (
