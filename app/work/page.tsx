@@ -102,16 +102,21 @@ export default function CatPage() {
   }, [awake])
 
   return (
-    <pre 
-      onMouseEnter={() => {
+    <div 
+    onMouseEnter={() => {
         setAwake(true)
       }}
       onMouseLeave={() => {
         setAwake(false)
       }}
+    className='w-fit'>
+    {/* <pre 
+      
       style={{ fontFamily: "monospace", lineHeight: "0.7" }}>
       {frames[frame]}
-    </pre>
+    </pre> */}
+    hi
+    </div>
 
   )
 }

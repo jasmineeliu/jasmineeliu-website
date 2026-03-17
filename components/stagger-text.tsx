@@ -6,6 +6,7 @@ export default function StaggerText({
 }: {
   link: {[key: string]: string};
 }) {
+  console.log("Hi", link)
     return (
       <motion.a 
         href={link['link'] !== "" ? link['link'] : undefined} 
