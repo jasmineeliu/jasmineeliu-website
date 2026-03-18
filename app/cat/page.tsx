@@ -4,7 +4,42 @@ import { useState, useEffect } from "react";
 const frames = [`
 \n
            _____  \n
-    　 　 ／ >    フ \n
+    　   ／ >    フ \n
+　　  　  | 　 _　 _| \n
+　 　 　　／  ミ _xノ\n
+　　 　  /　　　 　 |\n
+　　　  /　 ヽ　　 ﾉ\n
+　 ／￣|　　 |　|　|\n
+　| (￣ヽ＿_ヽ_)_)\n
+　 ＼二二つ\n
+`,
+`
+\n
+           _____  \n
+    　   ／ >    フ \n
+　　 　 z | 　 _　 _| \n
+　 　 　　／  ミ _xノ\n
+　　 　  /　　　 　 |\n
+　　　  /　 ヽ　　 ﾉ\n
+　 ／￣|　　 |　|　|\n
+　| (￣ヽ＿_ヽ_)_)\n
+　 ＼二二つ\n
+`,
+`
+\n
+           _____  \n
+    　z　 ／ >    フ \n
+　　 　 z | 　 _　 _| \n
+　 　 　　／  ミ _xノ\n
+　　 　  /　　　 　 |\n
+　　　  /　 ヽ　　 ﾉ\n
+　 ／￣|　　 |　|　|\n
+　| (￣ヽ＿_ヽ_)_)\n
+　 ＼二二つ\n
+`,
+`\n        \n
+      Z    _____  \n
+    　z　 ／ >    フ \n
 　　　 　　| 　 _　 _| \n
 　 　 　　／  ミ _xノ\n
 　　 　  /　　　 　 |\n
@@ -13,47 +48,32 @@ const frames = [`
 　| (￣ヽ＿_ヽ_)_)\n
 　 ＼二二つ\n
 `,
-`
-\n
+`\n      z \n
+      Z    _____  \n
+    　z　 ／ >    フ \n
+　　　 　　| 　 _　 _| \n
+　 　 　　／  ミ _xノ\n
+　　 　  /　　　 　 |\n
+　　　  /　 ヽ　　 ﾉ\n
+　 ／￣|　　 |　|　|\n
+　| (￣ヽ＿_ヽ_)_)\n
+　 ＼二二つ\n
+`,
+`\n      z \n
+      Z    _____  \n
+    　　  ／ >    フ \n
+　　 　   | 　 _　 _| \n
+　 　 　　／  ミ _xノ\n
+　　 　  /　　　 　 |\n
+　　　  /　 ヽ　　 ﾉ\n
+　 ／￣|　　 |　|　|\n
+　| (￣ヽ＿_ヽ_)_)\n
+　 ＼二二つ\n
+`,
+`\n      z \n
            _____  \n
-    　 　 ／ >    フ \n
-　　　 　　| 　 _　 _| z\n
-　 　 　　／  ミ _xノ\n
-　　 　  /　　　 　 |\n
-　　　  /　 ヽ　　 ﾉ\n
-　 ／￣|　　 |　|　|\n
-　| (￣ヽ＿_ヽ_)_)\n
-　 ＼二二つ\n
-`,
-`
-\n
-           _____  \n
-    　 　 ／ >    フ  Z\n
-　　　 　　| 　 _　 _| z\n
-　 　 　　／  ミ _xノ\n
-　　 　  /　　　 　 |\n
-　　　  /　 ヽ　　 ﾉ\n
-　 ／￣|　　 |　|　|\n
-　| (￣ヽ＿_ヽ_)_)\n
-　 ＼二二つ\n
-`,
-`
-                    \n
-           _____      z\n
-    　 　 ／ >    フ  Z\n
-　　　 　　| 　 _　 _| z\n
-　 　 　　／  ミ _xノ\n
-　　 　  /　　　 　 |\n
-　　　  /　 ヽ　　 ﾉ\n
-　 ／￣|　　 |　|　|\n
-　| (￣ヽ＿_ヽ_)_)\n
-　 ＼二二つ\n
-`,
-`
-                   z \n
-           _____      z\n
-    　 　 ／ >    フ  Z\n
-　　　 　　| 　 _　 _| z\n
+    　　  ／ >    フ \n
+　　 　   | 　 _　 _| \n
 　 　 　　／  ミ _xノ\n
 　　 　  /　　　 　 |\n
 　　　  /　 ヽ　　 ﾉ\n
@@ -84,7 +104,7 @@ export default function CatPage() {
     if (!awake) {
       intervalId = setInterval(() => {
         setFrame(prev => {
-          if (prev === 4) {
+          if (prev === 6) {
             return 0
           } else {
             return prev + 1
@@ -92,7 +112,7 @@ export default function CatPage() {
         })
       }, 1000);
     } else {
-      setFrame(5)
+      setFrame(7)
     }
     
     return () => {
@@ -109,14 +129,22 @@ export default function CatPage() {
       onMouseLeave={() => {
         setAwake(false)
       }}
-    className='w-fit'>
-    {/* <pre 
+        className="p-2 flex items-center justify-center overflow-hidden"
+    style={{
+      width: "220px",
+      height: "200px",
+    }}
+>
+    <pre 
       
       style={{ fontFamily: "monospace", lineHeight: "0.7" }}>
       {frames[frame]}
-    </pre> */}
-    hi
+    </pre>
     </div>
 
   )
 }
+
+// export default function Home() {
+//   return <div className="text-2xl">Work Page</div>;
+// }

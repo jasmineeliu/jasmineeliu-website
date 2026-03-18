@@ -6,7 +6,6 @@ export default function StaggerText({
 }: {
   link: {[key: string]: string};
 }) {
-  console.log("Hi", link)
     return (
       <motion.a 
         href={link['link'] !== "" ? link['link'] : undefined} 
@@ -24,7 +23,7 @@ export default function StaggerText({
                 key={i}
                 variants={{
                   initial: {y: 0},
-                  hovered: {y: "-100%", transition: {duration:0.2, ease: [0.33, 1, 0.68, 1], delay: i * 0.01}}
+                  hovered: {y: "-100%", transition: {duration:0.3, ease: [0.33, 1, 0.68, 1], delay: i * 0.01}}
                 }}
               >
                 {l === " " ? "\u00A0" : l}
@@ -44,7 +43,7 @@ export default function StaggerText({
                 key={i}
                 variants={{
                   initial: {y: "100%"},
-                  hovered: {y: 0, transition: {duration:0.2, ease: [0.33, 1, 0.68, 1], delay: i * 0.01}}
+                  hovered: {y: 0, transition: {duration:0.3, ease: [0.33, 1, 0.68, 1], delay: i * 0.01}}
                 }}
               >
                 {l === " " ? "\u00A0" : l}
