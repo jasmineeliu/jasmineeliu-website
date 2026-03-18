@@ -79,7 +79,7 @@ export default function Sidebar({
                 className="pt-1"
               >
                 <path
-                  ref={(el) => (pathRefs.current[idx] = el)}
+                  ref={(el) => {pathRefs.current[idx] = el}}
                   d={star_path}
                   fill={link.href === currentTab ? "#4361E9" : "#0D0B21"}
                   stroke={link.href === currentTab ? "#4361E9" : "#0D0B21"}
