@@ -9,7 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className='cursor-none'>
       <body className="flex h-screen align-middle justify-center bg-[#FDFCF7]">
         <LayoutClient>{children}</LayoutClient>
       </body>

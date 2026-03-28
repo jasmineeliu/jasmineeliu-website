@@ -4,7 +4,7 @@ import { motion, useMotionValue, animate } from "framer-motion";
 import StaggerText from "./stagger-text";
 import { useEffect, useRef } from "react";
 import { interpolate } from "flubber";
-import CatPage from "@/app/cat/page";
+import CatPage from "@/components/cat";
 
 type NavigationLinkProps = {
   href: string;
@@ -30,12 +30,10 @@ export default function Sidebar({
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
 
   useEffect(() => {
-    console.log("pluh")
     const controlsList: any[] = [];
 
     tabs.forEach((tab, idx) => {
       const isActive = tab.href === currentTab;
-
 
       const interpolator = isActive
         ? interpolate(star_path, flower_path, { maxSegmentLength: 10 })
@@ -44,7 +42,6 @@ export default function Sidebar({
       const el = pathRefs.current[idx];
       if (!el) return;
       if (!isActive && el.getAttribute("d") === star_path) return;
-
 
       const controls = animate(0, 1, {
         duration: 0.6,
@@ -66,36 +63,38 @@ export default function Sidebar({
     <div className="flex align-top justify-end-safe w-64 border-r border-[#0D0B21] p-4">
       <div className="flex flex-col gap-2 justify-between">
         <div className=" ml-auto flex flex-col gap-2 mr-15">
-        {tabs.map((link, idx) => (
-          <Link
-            href={link.href}
-            key={idx}
-          >
-            <div className="flex flex-row items-center gap-2">
-              <motion.svg
-                width={18}
-                height={18}
-                viewBox="0 0 480 483"
-                className="pt-1"
-              >
-                <path
-                  ref={(el) => {pathRefs.current[idx] = el}}
-                  d={star_path}
-                  fill={link.href === currentTab ? "#4361E9" : "#0D0B21"}
-                  stroke={link.href === currentTab ? "#4361E9" : "#0D0B21"}
-                />
-              </motion.svg>
-              <p className={link.href === currentTab ? "text-accent" : "text-[#0D0B21]"}>
-                {link.path_name}
-            </p>
-            </div>
-          </Link>
-        ))}
+          {tabs.map((link, idx) => (
+            <Link href={link.href} key={idx} className="cursor-none">
+              <div className="flex flex-row items-center gap-2">
+                <motion.svg
+                  width={18}
+                  height={18}
+                  viewBox="0 0 480 483"
+                  className="pt-1"
+                >
+                  <path
+                    ref={(el) => {
+                      pathRefs.current[idx] = el;
+                    }}
+                    d={star_path}
+                    fill={link.href === currentTab ? "#4361E9" : "#0D0B21"}
+                    stroke={link.href === currentTab ? "#4361E9" : "#0D0B21"}
+                  />
+                </motion.svg>
+                <p
+                  className={
+                    link.href === currentTab ? "text-accent" : "text-[#0D0B21]"
+                  }
+                >
+                  {link.path_name}
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
-        
+
         <CatPage />
       </div>
-      
     </div>
   );
 }
