@@ -1,13 +1,11 @@
 "use client";
 import StaggerText from "@/components/stagger-text";
-import CustomCursor, { CursorState } from "@/components/CustomCursor";
-import { useState } from "react";
+import { useCursor } from "@/components/CursorProvider";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
-  const [mouseState, setMouseState] = useState<CursorState>("default");
-  const [mouseChildren, setMouseChildren] = useState<React.ReactNode>(null);
+  const { setCursor, resetCursor } = useCursor();
 
   const links = [
     { link_name: "GitHub", link: "https://github.com/jasmineeliu" },
@@ -16,8 +14,7 @@ export default function Home() {
 
   return (
     <>
-      <CustomCursor eventType={mouseState} children={mouseChildren} />
-      <div className="flex flex-row gap-8 px-20 justify-between pb-10 items-center h-[100%] w-[100%]">
+      <div className="flex flex-row gap-8 px-20 justify-between pb-10 items-center h-full w-full">
         <div className="w-[80%] flex flex-col gap-8">
           <h1 className="text-2xl">hello – i’m jasmine </h1>
           <div className="flex flex-col gap-4">
@@ -26,33 +23,62 @@ export default function Home() {
               <span>
                 I’m a software developer, creative, and life-long learner. Born
                 and raised in LA, I’m currently studying Computer Science + Math
-                at Harvey Mudd College. Looking ahead, I'm working at{" "}
+                at </span> 
+                
+
+              <Link
+                href="https://www.hmc.edu/" 
+                target="_blank"
+                onMouseEnter={() => {
+                  setCursor(
+                    "image",
+                    <div className='relative flex flex-col items-center justify-center h-24 w-32 gap-2 bg-black'>
+                      <div className='relative w-[95%] h-[95%]'>
+                        <Image 
+                          src={'/hmc.jpg'}
+                          alt="photo of harvey mudd"
+                          fill={true}
+                          className='object-cover'
+                          unoptimized
+                        />
+                      </div>
+                      
+                      <p className='text-[10px] text-white'>go mudders!</p>
+                    </div>
+                  );
+                }}
+                onMouseLeave={() => {
+                  resetCursor();
+                }}
+                className="text-accent underline cursor-none">
+                Harvey Mudd College
+              </Link>
+
+                 <span>. Looking ahead, I'm working at{" "}
               </span>
               <Link
                 href="https://www.apple.com/" 
                 target="_blank"
                 onMouseEnter={() => {
-                  setMouseState('image');
-                  setMouseChildren(()=> {
-                    return (
+                  setCursor(
+                    "image",
                     <div className='relative flex flex-col items-center justify-center h-24 w-32 gap-2 bg-black'>
                       <div className='relative w-[95%] h-[95%]'>
                         <Image 
                           src={'/apple.gif'}
-                          alt="image"
+                          alt="gif of apple logo"
                           fill={true}
                           className='object-cover'
+                          unoptimized
                         />
                       </div>
                       
                       <p className='text-[10px] text-white'>swe @ apple :)</p>
                     </div>
-                    )
-                  })
+                  );
                 }}
                 onMouseLeave={() => {
-                  setMouseState('default');
-                  setMouseChildren(null);
+                  resetCursor();
                 }}
                 className="text-accent underline cursor-none">
                 Apple
@@ -70,27 +96,25 @@ export default function Home() {
                 href="https://pages.hmc.edu/msinopoli/index.html" 
                 target="_blank"
                 onMouseEnter={() => {
-                  setMouseState('image');
-                  setMouseChildren(()=> {
-                    return (
+                  setCursor(
+                    "image",
                     <div className='relative flex flex-col items-center justify-center h-24 w-32 gap-2 bg-black'>
                       <div className='relative w-[95%] h-[95%]'>
                         <Image 
                           src={'/skeletal.gif'}
-                          alt="image"
+                          alt="gif of skeletons running"
                           fill={true}
                           className='object-cover'
+                          unoptimized
                         />
                       </div>
                       
                       <p className='text-[10px] text-white'>researching movement</p>
                     </div>
-                    )
-                  })
+                  );
                 }}
                 onMouseLeave={() => {
-                  setMouseState('default');
-                  setMouseChildren(null);
+                  resetCursor();
                 }}
                 className="text-accent underline cursor-none">
                  the way they move
@@ -111,7 +135,15 @@ export default function Home() {
               {links.map((link, index) => {
                 return (
                   <div key={index} className="">
-                    <StaggerText link={link} />
+                    <StaggerText
+                      link={link}
+                      onHoverStart={() => {
+                        setCursor("rotated");
+                      }}
+                      onHoverEnd={() => {
+                        resetCursor();
+                      }}
+                    />
                   </div>
                 );
               })}

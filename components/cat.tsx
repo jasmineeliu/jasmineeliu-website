@@ -1,7 +1,9 @@
-'use client'
+"use client";
 import { useState, useEffect } from "react";
+import { useCursor } from "@/components/CursorProvider";
 
-const frames = [`
+const frames = [
+  `
 \n
            _____  \n
     　   ／ >    フ \n
@@ -13,7 +15,7 @@ const frames = [`
 　| (￣ヽ＿_ヽ_)_)\n
 　 ＼二二つ\n
 `,
-`
+  `
 \n
            _____  \n
     　   ／ >    フ \n
@@ -25,7 +27,7 @@ const frames = [`
 　| (￣ヽ＿_ヽ_)_)\n
 　 ＼二二つ\n
 `,
-`
+  `
 \n
            _____  \n
     　z　 ／ >    フ \n
@@ -37,7 +39,7 @@ const frames = [`
 　| (￣ヽ＿_ヽ_)_)\n
 　 ＼二二つ\n
 `,
-`\n        \n
+  `\n        \n
       Z    _____  \n
     　z　 ／ >    フ \n
 　　　 　　| 　 _　 _| \n
@@ -48,7 +50,7 @@ const frames = [`
 　| (￣ヽ＿_ヽ_)_)\n
 　 ＼二二つ\n
 `,
-`\n      z \n
+  `\n      z \n
       Z    _____  \n
     　z　 ／ >    フ \n
 　　　 　　| 　 _　 _| \n
@@ -59,7 +61,7 @@ const frames = [`
 　| (￣ヽ＿_ヽ_)_)\n
 　 ＼二二つ\n
 `,
-`\n      z \n
+  `\n      z \n
       Z    _____  \n
     　　  ／ >    フ \n
 　　 　   | 　 _　 _| \n
@@ -70,7 +72,7 @@ const frames = [`
 　| (￣ヽ＿_ヽ_)_)\n
 　 ＼二二つ\n
 `,
-`\n      z \n
+  `\n      z \n
            _____  \n
     　　  ／ >    フ \n
 　　 　   | 　 _　 _| \n
@@ -81,7 +83,7 @@ const frames = [`
 　| (￣ヽ＿_ヽ_)_)\n
 　 ＼二二つ\n
 `,
-`
+  `
 \n
            _____  \n
     　 　 ／ >    フ \n
@@ -98,51 +100,58 @@ const frames = [`
 export default function CatPage() {
   const [frame, setFrame] = useState(0);
   const [awake, setAwake] = useState(false);
+  const textOptions = ["shhhh..", "meow", "hello!"]
+
+  const { setCursor, resetCursor } = useCursor();
 
   useEffect(() => {
-    let intervalId: NodeJS.Timeout
+    let intervalId: NodeJS.Timeout;
     if (!awake) {
       intervalId = setInterval(() => {
-        setFrame(prev => {
+        setFrame((prev) => {
           if (prev === 6) {
-            return 0
+            return 0;
           } else {
-            return prev + 1
+            return prev + 1;
           }
-        })
+        });
       }, 1000);
     } else {
-      setFrame(7)
+      setFrame(7);
+      setCursor(
+        "text",
+        <div className="relative flex flex-col items-center justify-center px-4 bg-black">
+          <p className="text-[10px] text-white">{textOptions[Math.floor(Math.random() * textOptions.length)]}</p>
+        </div>,
+      );
     }
-    
+
     return () => {
-      setFrame(0)
+      setFrame(0);
+      resetCursor();
       if (intervalId) clearInterval(intervalId);
-    }
-  }, [awake])
+    };
+  }, [awake]);
 
   return (
-    <div 
-    onMouseEnter={() => {
-        setAwake(true)
+    <div
+      onMouseEnter={() => {
+        setAwake(true);
       }}
       onMouseLeave={() => {
-        setAwake(false)
+        setAwake(false);
       }}
-        className="p-2 flex items-center justify-center overflow-hidden"
-    style={{
-      width: "220px",
-      height: "200px",
-    }}
->
-    <pre 
-      
-      style={{ fontFamily: "monospace", lineHeight: "0.7" }}>
-      {frames[frame]}
-    </pre>
+      className="p-2 flex items-center justify-center overflow-hidden"
+      style={{
+        width: "220px",
+        height: "200px",
+      }}
+    >
+      <pre style={{ fontFamily: "monospace", lineHeight: "0.7" }}>
+        {frames[frame]}
+      </pre>
     </div>
-
-  )
+  );
 }
 
 // export default function Home() {

@@ -29,6 +29,7 @@ export default function Sidebar({
 
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
 
+
   useEffect(() => {
     const controlsList: any[] = [];
 

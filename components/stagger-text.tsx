@@ -3,14 +3,20 @@ import {motion} from 'framer-motion';
 
 export default function StaggerText({
   link,
+  onHoverStart,
+  onHoverEnd,
 }: {
   link: {[key: string]: string};
+  onHoverStart?: () => void;
+  onHoverEnd?: () => void;
 }) {
     return (
       <motion.a 
         href={link['link'] !== "" ? link['link'] : undefined} 
         initial='initial'
         whileHover='hovered'
+        onMouseEnter={onHoverStart}
+        onMouseLeave={onHoverEnd}
         target='_blank' 
         // style={{lineHeight: 1.08}}
         className='relative block overflow-hidden whitespace-nowrap cursor-none'>
