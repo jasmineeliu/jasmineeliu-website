@@ -138,7 +138,7 @@ export default function CatPage() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1, transition: { duration: 0.5, delay: 1 } }}
+      whileInView={{ opacity: 1, transition: { duration: 0.5, delay: 0.8 } }}
       onMouseEnter={() => {
         setAwake(true);
       }}

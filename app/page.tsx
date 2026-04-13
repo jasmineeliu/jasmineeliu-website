@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex flex-row gap-8 md:px-20 md:justify-between md:pb-10 items-center h-full w-[80%]">
+      <div className="flex flex-row gap-8 md:px-20 md:justify-between md:pb-10 items-center h-full w-[80%] lg:w-[70%]">
         <div className="flex flex-col gap-8">
           <motion.h1
             initial={{ opacity: 0, y: -10 }}
