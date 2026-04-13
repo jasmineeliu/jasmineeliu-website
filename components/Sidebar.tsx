@@ -29,7 +29,6 @@ export default function Sidebar({
 
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
 
-
   useEffect(() => {
     const controlsList: any[] = [];
 
@@ -61,7 +60,11 @@ export default function Sidebar({
   }, [currentTab]);
 
   return (
-    <div className="flex align-top justify-end-safe w-64 border-r border-[#0D0B21] p-4">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1, transition: { duration: 0.5} }}
+      className="flex align-top justify-end-safe w-64 border-r border-[#0D0B21] p-4"
+    >
       <div className="flex flex-col gap-2 justify-between">
         <div className=" ml-auto flex flex-col gap-2 mr-15">
           {tabs.map((link, idx) => (
@@ -96,6 +99,6 @@ export default function Sidebar({
 
         <CatPage />
       </div>
-    </div>
+    </motion.div>
   );
 }

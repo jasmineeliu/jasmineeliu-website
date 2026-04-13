@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useCursor } from "@/components/CursorProvider";
-
+import { motion } from "framer-motion";
 const frames = [
   `
 \n
@@ -100,7 +100,7 @@ const frames = [
 export default function CatPage() {
   const [frame, setFrame] = useState(0);
   const [awake, setAwake] = useState(false);
-  const textOptions = ["shhhh..", "meow", "hello!"]
+  const textOptions = ["shhhh..", "meow", "hello!", "zzz...", "eepy", "boop!"];
 
   const { setCursor, resetCursor } = useCursor();
 
@@ -121,7 +121,9 @@ export default function CatPage() {
       setCursor(
         "text",
         <div className="relative flex flex-col items-center justify-center px-4 bg-black">
-          <p className="text-[10px] text-white">{textOptions[Math.floor(Math.random() * textOptions.length)]}</p>
+          <p className="text-[10px] text-white italic">
+            {textOptions[Math.floor(Math.random() * textOptions.length)]}
+          </p>
         </div>,
       );
     }
@@ -134,7 +136,9 @@ export default function CatPage() {
   }, [awake]);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1, transition: { duration: 0.5, delay: 1 } }}
       onMouseEnter={() => {
         setAwake(true);
       }}
@@ -150,7 +154,7 @@ export default function CatPage() {
       <pre style={{ fontFamily: "monospace", lineHeight: "0.7" }}>
         {frames[frame]}
       </pre>
-    </div>
+    </motion.div>
   );
 }
 

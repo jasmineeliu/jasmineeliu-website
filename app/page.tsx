@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import StaggerText from "@/components/stagger-text";
 import { useCursor } from "@/components/CursorProvider";
 import Image from "next/image";
@@ -16,120 +17,158 @@ export default function Home() {
     <>
       <div className="flex flex-row gap-8 px-20 justify-between pb-10 items-center h-full w-full">
         <div className="w-[80%] flex flex-col gap-8">
-          <h1 className="text-2xl">hello – i’m jasmine </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.75 } }}
+            className="text-2xl"
+          >
+            hello – i’m jasmine{" "}
+          </motion.h1>
           <div className="flex flex-col gap-4">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.75, delay: 0.1 },
+              }}
+            >
               {" "}
               <span>
                 I’m a software developer, creative, and life-long learner. Born
                 and raised in LA, I’m currently studying Computer Science + Math
-                at </span> 
-                
-
-              <Link
-                href="https://www.hmc.edu/" 
-                target="_blank"
-                onMouseEnter={() => {
-                  setCursor(
-                    "image",
-                    <div className='relative flex flex-col items-center justify-center h-24 w-32 gap-2 bg-black'>
-                      <div className='relative w-[95%] h-[95%]'>
-                        <Image 
-                          src={'/hmc.jpg'}
-                          alt="photo of harvey mudd"
-                          fill={true}
-                          className='object-cover'
-                          unoptimized
-                        />
-                      </div>
-                      
-                      <p className='text-[10px] text-white'>go mudders!</p>
-                    </div>
-                  );
-                }}
-                onMouseLeave={() => {
-                  resetCursor();
-                }}
-                className="text-accent underline cursor-none">
-                Harvey Mudd College
-              </Link>
-
-                 <span>. Looking ahead, I'm working at{" "}
+                at{" "}
               </span>
               <Link
-                href="https://www.apple.com/" 
+                href="https://www.hmc.edu/"
                 target="_blank"
                 onMouseEnter={() => {
                   setCursor(
                     "image",
-                    <div className='relative flex flex-col items-center justify-center h-24 w-32 gap-2 bg-black'>
-                      <div className='relative w-[95%] h-[95%]'>
-                        <Image 
-                          src={'/apple.gif'}
-                          alt="gif of apple logo"
+                    <div className="relative flex flex-col items-center justify-center h-24 w-32 gap-2 bg-black">
+                      <div className="relative w-[95%] h-[95%]">
+                        <Image
+                          src={"/hmc.jpg"}
+                          alt="photo of harvey mudd"
                           fill={true}
-                          className='object-cover'
+                          className="object-cover"
                           unoptimized
                         />
                       </div>
-                      
-                      <p className='text-[10px] text-white'>swe @ apple :)</p>
-                    </div>
+
+                      <p className="text-[10px] text-white">go mudders!</p>
+                    </div>,
                   );
                 }}
                 onMouseLeave={() => {
                   resetCursor();
                 }}
-                className="text-accent underline cursor-none">
+                className="text-accent underline cursor-none"
+              >
+                Harvey Mudd College
+              </Link>
+              <span>. Looking ahead, I'm working at </span>
+              <Link
+                href="https://www.apple.com/"
+                target="_blank"
+                onMouseEnter={() => {
+                  setCursor(
+                    "image",
+                    <div className="relative flex flex-col items-center justify-center h-24 w-32 gap-2 bg-black">
+                      <div className="relative w-[95%] h-[95%]">
+                        <Image
+                          src={"/apple.gif"}
+                          alt="gif of apple logo"
+                          fill={true}
+                          className="object-cover"
+                          unoptimized
+                        />
+                      </div>
+
+                      <p className="text-[10px] text-white">swe @ apple :)</p>
+                    </div>,
+                  );
+                }}
+                onMouseLeave={() => {
+                  resetCursor();
+                }}
+                className="text-accent underline cursor-none"
+              >
                 Apple
               </Link>
               <span> this summer in Austin, TX.</span>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.75, delay: 0.2 },
+              }}
+            >
               <span>
                 I love getting fixated on a problem and finding elegant
                 solutions. As an artist and a technologist, I strive to build
                 intuitive tools that draw people in. I'm obsessed with humans –
-                from </span>
+                from{" "}
+              </span>
               <Link
-                href="https://pages.hmc.edu/msinopoli/index.html" 
+                href="https://pages.hmc.edu/msinopoli/index.html"
                 target="_blank"
                 onMouseEnter={() => {
                   setCursor(
                     "image",
-                    <div className='relative flex flex-col items-center justify-center h-24 w-32 gap-2 bg-black'>
-                      <div className='relative w-[95%] h-[95%]'>
-                        <Image 
-                          src={'/skeletal.gif'}
+                    <div className="relative flex flex-col items-center justify-center h-24 w-32 gap-2 bg-black">
+                      <div className="relative w-[95%] h-[95%]">
+                        <Image
+                          src={"/skeletal.gif"}
                           alt="gif of skeletons running"
                           fill={true}
-                          className='object-cover'
+                          className="object-cover"
                           unoptimized
                         />
                       </div>
-                      
-                      <p className='text-[10px] text-white'>researching movement</p>
-                    </div>
+
+                      <p className="text-[10px] text-white">
+                        researching movement
+                      </p>
+                    </div>,
                   );
                 }}
                 onMouseLeave={() => {
                   resetCursor();
                 }}
-                className="text-accent underline cursor-none">
-                 the way they move
+                className="text-accent underline cursor-none"
+              >
+                the way they move
               </Link>
               <span> to how they think</span>
-            </div>
+            </motion.div>
 
-            <p>
+            <motion.p
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.75, delay: 0.3 },
+              }}
+            >
               When I’m not coding, I’m crafting, eating my way through wherever
               I'm located, and exploring the outdoors.
-            </p>
+            </motion.p>
           </div>
-          <div className="flex flex-row gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.75, delay: 0.3 },
+            }}
+            className="flex flex-row gap-4"
+          >
             <p>Connect with me</p>
-            <p>/</p>
+            <p className="select-none">/</p>
             <div className="flex flex-row gap-4 opacity-70">
               <p>jasmliu [at] hmc.edu</p>
               {links.map((link, index) => {
@@ -148,7 +187,7 @@ export default function Home() {
                 );
               })}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>
