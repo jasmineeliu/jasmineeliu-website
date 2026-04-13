@@ -15,8 +15,8 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex flex-row gap-8 px-20 justify-between pb-10 items-center h-full w-full">
-        <div className="w-[80%] flex flex-col gap-8">
+      <div className="flex flex-row gap-8 md:px-20 md:justify-between md:pb-10 items-center h-full w-[80%]">
+        <div className="flex flex-col gap-8">
           <motion.h1
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.75 } }}
@@ -165,10 +165,11 @@ export default function Home() {
               y: 0,
               transition: { duration: 0.75, delay: 0.3 },
             }}
-            className="flex flex-row gap-4"
+            className="flex flex-col lg:flex-row gap-2 lg:gap-4 items-center"
           >
-            <p>Connect with me</p>
-            <p className="select-none">/</p>
+          
+            <span className='inline'>Connect with me</span>
+            <p className="select-none hidden lg:block">/</p>
             <div className="flex flex-row gap-4 opacity-70">
               <p>jasmliu [at] hmc.edu</p>
               {links.map((link, index) => {
