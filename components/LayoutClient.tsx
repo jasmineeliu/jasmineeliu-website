@@ -35,11 +35,15 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
 
   return (
     <CursorProvider>
-      {isMobile ? (<div className='flex flex-col w-full gap-0 items-center justify-center pt-20 bg-[#FDFCF7]'>
+      {isMobile ? (
+        <div className='flex flex-col w-full gap-2  items-center justify-center mt-[22.5%] bg-[#FDFCF7]'>
         <div className='flex flex-row items-center justify-center'>
           {children}
         </div>
-        <CatPage />
+        <div className='h-full'>
+          <CatPage />
+        </div>
+        
       </div>) :
       
       (<div className='w-[80%] py-[7%] flex flex-row bg-[#FDFCF7]'>
