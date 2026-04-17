@@ -145,15 +145,24 @@ export default function CatPage() {
       onMouseLeave={() => {
         setAwake(false);
       }}
-      className="p-2 flex items-center justify-center overflow-hidden"
-      style={{
-        width: "220px",
-        height: "200px",
-      }}
+      className="p-2 flex items-center justify-center overflow-hidden w-[180px] sm:w-[220px] h-[160px] sm:h-[200px]"
+      // style={{
+      //   width: "220px",
+      //   height: "200px",
+      // }}
     >
-      <pre style={{ fontFamily: "monospace", lineHeight: "0.7" }}>
-        {frames[frame]}
-      </pre>
+      <div className="scale-85 sm:scale-100 origin-center">
+        <pre
+          className="text-[13px] sm:text-[14px]"
+          style={{
+            fontFamily: "Menlo, Monaco, Consolas, 'Courier New', monospace",
+            lineHeight: "0.7",
+            whiteSpace: "pre",
+          }}
+        >
+          {frames[frame]}
+        </pre>
+      </div>
     </motion.div>
   );
 }
