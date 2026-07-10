@@ -6,7 +6,7 @@ const frames = [
   `
 \n
            _____  \n
-    　   ／ >    フ \n
+    　 　 ／ >    フ \n
 　　  　  | 　 _　 _| \n
 　 　 　　／  ミ _xノ\n
 　　 　  /　　　 　 |\n
@@ -18,7 +18,7 @@ const frames = [
   `
 \n
            _____  \n
-    　   ／ >    フ \n
+    　 　 ／ >    フ \n
 　　 　 z | 　 _　 _| \n
 　 　 　　／  ミ _xノ\n
 　　 　  /　　　 　 |\n
@@ -120,7 +120,7 @@ export default function CatPage() {
       setFrame(7);
       setCursor(
         "text",
-        <div className="relative flex flex-col items-center justify-center px-4 bg-black">
+        <div className="relative flex flex-col items-center justify-center px-4 bg-black select-none">
           <p className="text-[10px] text-white italic">
             {textOptions[Math.floor(Math.random() * textOptions.length)]}
           </p>
@@ -145,15 +145,11 @@ export default function CatPage() {
       onMouseLeave={() => {
         setAwake(false);
       }}
-      className="p-2 flex items-center justify-center overflow-hidden w-[180px] sm:w-[220px] h-[160px] sm:h-[200px]"
-      // style={{
-      //   width: "220px",
-      //   height: "200px",
-      // }}
+      className="cursor-none p-2 flex items-center justify-center overflow-hidden w-[180px] sm:w-[220px] h-[160px] sm:h-[200px]"
     >
-      <div className="scale-85 sm:scale-100 origin-center">
+      <div className="cursor-none scale-85 sm:scale-100 origin-center">
         <pre
-          className="text-[13px] sm:text-[14px]"
+          className=" cursor-none text-[13px] sm:text-[14px] select-none"
           style={{
             fontFamily: "Menlo, Monaco, Consolas, 'Courier New', monospace",
             lineHeight: "0.7",
@@ -167,6 +163,3 @@ export default function CatPage() {
   );
 }
 
-// export default function Home() {
-//   return <div className="text-2xl">Work Page</div>;
-// }

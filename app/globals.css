@@ -25,3 +25,14 @@
     /* --font-body: "figtree", "sans-serif"; */
     --font-body: "Libre Baskerville", "PT Serif", "serif";
 }
+
+body *:hover {
+    cursor: none !important;
+}
+@media (hover: hover) {
+  html,
+  body,
+  * {
+    cursor: none !important;
+  }
+}

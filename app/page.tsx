@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-row gap-8 md:px-20 md:justify-between md:pb-10 items-center h-full w-[80%] lg:w-[70%]">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 cursor-none">
           <motion.h1
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.75 } }}
@@ -34,7 +34,7 @@ export default function Home() {
               }}
             >
               {" "}
-              <span>
+              <span className='cursor-none'>
                 I’m a software developer, creative, and life-long learner. Born
                 and raised in LA, I’m currently studying Computer Science + Math
                 at{" "}
@@ -67,9 +67,9 @@ export default function Home() {
               >
                 Harvey Mudd College
               </Link>
-              <span>. Looking ahead, I'm working at </span>
+              <span>. This summer, I'm creating delightful advertising experiences at </span>
               <Link
-                href="https://www.apple.com/"
+                href="https://ads.apple.com/"
                 target="_blank"
                 onMouseEnter={() => {
                   setCursor(
@@ -85,7 +85,7 @@ export default function Home() {
                         />
                       </div>
 
-                      <p className="text-[10px] text-white">swe @ apple :)</p>
+                      <p className="text-[10px] text-white">swe @ apple ads :)</p>
                     </div>,
                   );
                 }}
@@ -96,7 +96,7 @@ export default function Home() {
               >
                 Apple
               </Link>
-              <span> this summer in Austin, TX.</span>
+              <span> in Austin, TX.</span>
             </motion.div>
 
             <motion.div
@@ -143,7 +143,7 @@ export default function Home() {
               >
                 the way they move
               </Link>
-              <span> to how they think</span>
+              <span> to how they think.</span>
             </motion.div>
 
             <motion.p
