@@ -29,7 +29,7 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
 
   const tabs = [
     { href: "/", path_name: "me" },
-    // { href: "/work", path_name: "work" },
+    { href: "/work", path_name: "work" },
     // { href: "/play", path_name: "play" },
   ];
 

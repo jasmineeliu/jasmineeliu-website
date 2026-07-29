@@ -5,6 +5,7 @@ import StaggerText from "./stagger-text";
 import { useEffect, useRef } from "react";
 import { interpolate } from "flubber";
 import CatPage from "@/components/cat";
+import { useCursor } from "@/components/CursorProvider";
 
 type NavigationLinkProps = {
   href: string;
@@ -28,6 +29,7 @@ export default function Sidebar({
     "M17.0883 189.23C161.588 158.73 168.088 92.23 192.588 8.23002C196.255 2.39668 205.088 -5.76978 214.588 8.23002C239.588 145.73 306.088 171.23 388.588 189.73C416.588 194.23 404.588 214.23 388.588 214.23C245.088 239.23 232.088 328.73 215.588 389.73C206.088 415.23 192.088 401.23 189.588 386.23C151.088 244.73 112.088 239.23 17.0883 213.73C-10.4117 209.23 1.08828 190.73 17.0883 189.23Z";
 
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
+  const { setCursor, resetCursor } = useCursor();
 
   useEffect(() => {
     const controlsList: any[] = [];
@@ -68,7 +70,14 @@ export default function Sidebar({
       <div className="flex flex-col gap-2 justify-between">
         <div className=" ml-auto flex flex-col gap-2 mr-15">
           {tabs.map((link, idx) => (
-            <Link href={link.href} key={idx} className="cursor-none">
+            <Link href={link.href} key={idx} className="cursor-none" 
+              onMouseEnter={() => {
+                setCursor("rotated");
+              }}
+              onMouseLeave={() => {
+                resetCursor();
+              }}
+            >
               <div className="flex flex-row items-center gap-2">
                 <motion.svg
                   width={18}
