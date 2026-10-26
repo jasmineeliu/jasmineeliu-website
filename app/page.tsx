@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-row gap-8 md:px-20 md:justify-between md:pb-10 items-center h-full w-[80%] lg:w-[70%]">
-        <div className="flex flex-col gap-8 cursor-none">
+        <div className="flex flex-col gap-8 cursor-none pt-[22%] md:pt-0">
           <motion.h1
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.75 } }}

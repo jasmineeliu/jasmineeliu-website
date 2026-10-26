@@ -124,8 +124,8 @@ export default function WorkPage() {
   return (
     <>
       <div className="flex flex-row gap-8 md:px-20 md:justify-between md:pb-10 items-start min-h-screen w-[80%] lg:w-[70%]">
-        <div className="flex flex-col gap-10 cursor-none">
-          <div className=" flex flex-col gap-4 cursor-none pt-20 sticky">
+        <div className="flex flex-col gap-10 cursor-none pt-[80%] lg:pt-20  md:pt-50 sm:pt-40">
+          <div className=" flex flex-col gap-4 cursor-none sticky ">
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
