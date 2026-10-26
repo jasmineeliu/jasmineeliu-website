@@ -67,7 +67,7 @@ export default function Home() {
               >
                 Harvey Mudd College
               </Link>
-              <span>. This summer, I'm creating delightful advertising experiences at </span>
+              <span>. This past summer, I was creating delightful advertising experiences at </span>
               <Link
                 href="https://ads.apple.com/"
                 target="_blank"
